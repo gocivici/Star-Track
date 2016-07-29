@@ -49,14 +49,14 @@ void loop()
 {
     //this will update the RA degrees with sidereal time 1degree at a time
     //this way the object or star on the sky is tracked.
-    /*if( floor(LST_degrees)==LST_degrees ){ 
+    if( floor(LST_degrees)==LST_degrees ){ 
       if (LST_degrees>180){
         val2 = temp+(360-LST_degrees);
         }else{
         val2 = temp-LST_degrees;
         }
     }
-     */ 
+      
     myRTC.updateTime();
     LST_time();
     recvdata();
@@ -72,9 +72,9 @@ void loop()
     yaw = yaw + norm.YAxis * timeStep;
     pitch = pitch + norm.XAxis * timeStep;
     Serial.print(" Yaw = ");
-    Serial.print(213.91);
+    Serial.print(yaw);
     Serial.print(" Pitch = ");
-    Serial.print(19.18);
+    Serial.print(pitch);
     Serial.print(" LST_d = ");
     Serial.print(LST_degrees);
     Serial.print(" LST_h = ");
