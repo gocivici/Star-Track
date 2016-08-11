@@ -14,7 +14,8 @@ MPU6050 mpu;
 virtuabotixRTC myRTC(A0, A1, A2);
 double M,Y,D,MN,H,S;
 double A,B;
-double location =32.88;//your longtitude
+double location =32.88;//your longtitude.
+double location2 =39.933363//your latitude.
 double LST_degrees;//variable to store local side real time(LST) in degrees.
 double LST_hours;//variable to store local side real time(LST) in decimal hours.
 unsigned long timer = 0;
@@ -49,14 +50,23 @@ void loop()
 {
     //this will update the RA degrees with sidereal time 1degree at a time
     //this way the object or star on the sky is tracked.
+  if(location2>0){//for the northern hemisphere. 
     if( floor(LST_degrees)==LST_degrees ){ 
       if (LST_degrees>180){
         val2 = temp+(360-LST_degrees);
         }else{
-        val2 = temp-LST_degrees;
+        val2 = temp-LST_degrees; //use val2 = temp+LST_degrees; if you are located in the southern hemisphere.
         }
     }
-      
+  }else{//for the southern hemisphere.
+   if( floor(LST_degrees)==LST_degrees ){ 
+      if (LST_degrees>180){
+        val2 = temp-(360-LST_degrees);
+        }else{
+        val2 = temp+LST_degrees; //use val2 = temp+LST_degrees; if you are located in the southern hemisphere.
+        }
+    }
+  }
     myRTC.updateTime();
     LST_time();
     recvdata();
