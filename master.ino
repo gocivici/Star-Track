@@ -2,7 +2,7 @@
  This is the source code for the master-module of Star Track.
  Required Libraries:
  https://virtuabotix-virtuabotixllc.netdna-ssl.com/core/wp-content/uploads/2014/01/virtuabotixRTC.zip
- https://github.com/jrowberg/i2cdevlib/tree/master/Arduino/MPU6050 
+ https://drive.google.com/folderview?id=0B1p6T9dV6tnqSjU2WnBXREZPbms&usp=sharing 
  
  Created 20 July 2016 by Görkem Bozkurt
  */
